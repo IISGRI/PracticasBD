@@ -1,0 +1,48 @@
+Practica Laboratorio 4
+
+SELECCION DE REGISTROS
+
+
+--1.- Los clientes con el nombre de Edgar
+	SELECT * FROM cliente
+	WHERE nombre = 'Edgar';
+	
+--2. Los clientes que no se llamen Edgar
+	SELECT * FROM cliente
+	WHERE nombre != 'Edgar';
+
+--3. Los clientes con un credito mayor a 5000
+	SELECT * FROM cliente
+	WHERE credito > 5000;
+
+--4. Los clientes con un credito menor a 5000
+	SELECT * FROM cliente
+	WHERE credito < 5000;
+
+--5. Los clientes de la Delegacion Iztacalco
+	SELECT * FROM cliente
+	WHERE alcaldia = 'Iztacalco';
+
+--6. Los productos con un precio sugerido de mas de 5000
+	SELECT * FROM producto
+	WHERE preciosugerido >= 5000;
+
+--7. Los productos de los que nos queden menos de 5
+	SELECT * FROM producto
+	WHERE existencia < 5;
+
+--8. Los clientes cuyo pago mensual a 6 meses sea mayor a 1000
+	SELECT * FROM cliente
+	WHERE deuda/6 > 1000;
+
+--9. Los clientes cuyo crŽdito disponible (CrŽdito- Deuda), sea menor o igual a 3000
+	SELECT * from cliente
+	WHERE credito-deuda <= 3000;
+
+--10. Los clientes a los que su deuda incremŽntada en 20% sea mayor a 20000
+	SELECT * FROM cliente
+	WHERE deuda*1.20 > 20000;
+
+--11. Los clientes que si dan un anticipo del 20%, su deuda es menor de 10000
+	SELECT * FROM cliente
+	WHERE deuda*.8 < 10000; 
