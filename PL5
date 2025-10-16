@@ -1,0 +1,15 @@
+-- Practica Laboratorio 5
+
+SELECT nombre,
+       upper(nombre),
+       left(nombre,2),
+       
+FROM Cliente;
+
+
+
+
+
+rtrim
+ltrim
+charlen
