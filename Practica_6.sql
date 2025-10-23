@@ -4,20 +4,29 @@
 
 
 -- 1. Muestra la fecha actual.
+	SELECT now();
 
--- 2. ÀQue fecha sera dentro de una semana?
+-- 2. Que fecha sera dentro de una semana?
+	SELECT now(), now() + cast('1 week' as interval);
 
--- 3. ÀCual es la antiguedad de los clientes? (a–os que han pasado desde que se dieron de alta).
+-- PENDIENTE 3. Cual es la antiguedad de los clientes? (años que han pasado desde que se dieron de alta).
+	SELECT nombre, age(now(), fecharegistro) FROM Cliente;
 
 -- 4. Muestra en una columna solo el dia de la fecha de Hoy y en otra el nombre del dia de hoy.
+	SELECT extract('Day' FROM now()), to_char(now(), 'Day');
 
 -- 5. Muestra en columnas separadas al a–o, mes, dia, hora y minuto de la fecha de alta.
+	SELECT nombre, extract('Year' FROM fecharegistro) as "Año", extract('Mon' FROM fecharegistro) as "Mes", extract('Day' FROM fecharegistro) as "Dia", extract('Hour' FROM fecharegistro) as "Hora", extract('Min' FROM fecharegistro)
+	FROM Cliente;	 
 
--- 6. Si el cliente compra algo hoy a mensualidades, ÀCuando seran los primeros 3 pagos?
+-- 6. Si el cliente compra algo hoy a mensualidades, Cuando seran los primeros 3 pagos?
+	SELECT now() as "Fecha compra", now() + cast('1 Mon' as interval) as "Primer Pago", now() + cast('2 Mon' as interval) as "Segundo Pago", now() + cast('3 Mon' as interval) as "Tercer Pago"
 
--- 7. Muestra la antigŸedad de los Clientes en A–os, meses y dias.
+-- 7. Muestra la antiguedad de los Clientes en Años, meses y dias.
+	SELECT nombre, age(now(), fecharegistro) FROM Cliente;
 
 -- 8. Muestra " el día de hoy [11/03/2010]  es [Sabado] "
+	SELECT 'El dia de hoy [' || extract
 
 -- 9. Muestra " [Edgar Catalan] se dio de alta el [sabado 11/03/2010] "
 
